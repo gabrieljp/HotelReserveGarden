@@ -52,8 +52,9 @@ public class HotelReserveGarden {
             
             
         }while(condicao != true);
+        teclado.close();
+    
         
     }
-
     
 }

@@ -30,5 +30,7 @@ public class CadastroDeLogin {
         senhaUsuario = teclado.nextLine();
         
         System.out.println("\nCADASTRO REALIZADO COM SUCESSO!\n");
+        
     }
+    
 }
