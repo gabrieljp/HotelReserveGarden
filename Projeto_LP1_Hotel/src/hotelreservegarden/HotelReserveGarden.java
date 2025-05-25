@@ -8,12 +8,15 @@ public class HotelReserveGarden {
   
     public static void main(String[] args) {
         int opcao;
+        
+        //atributos do metodo CadastroDelogin do usuario
         boolean condicao=false;
         String nome = null;
         String telefone = null;
         String login = null;
         String senha = null;
         
+        //atributos do metodo CadastroDeFuncionario do funcionario
         String nomeFunc = null;
         String telFunc = null;
         String loginFunc = null;
@@ -21,8 +24,9 @@ public class HotelReserveGarden {
 
         Scanner teclado = new Scanner(System.in);
         
-        CadastroDeLogin cadUsuario = new CadastroDeLogin();
-        CadastroDeFuncionario cadFuncionario = new CadastroDeFuncionario();
+        CadastroDeLogin cadUsuario = new CadastroDeLogin();//instaciando o metodo CadastroDelogin
+        
+        CadastroDeFuncionario cadFuncionario = new CadastroDeFuncionario();//instaciando o metodo CadastroDeFuncionario do funcionario
     
         do{
             

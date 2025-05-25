@@ -15,6 +15,7 @@ public class CadastroDeFuncionario {
     
     
     Scanner teclado = new Scanner(System.in);
+   
     
     
     
@@ -31,6 +32,9 @@ public class CadastroDeFuncionario {
             switch(opcao){
                 case 1:
                     System.out.println(" AUTHENTICAR LOGIN DO FUNCIONARIO");
+                    System.out.println(" FALTA IMPLEMENTAR\n");
+                    
+                    
                     break;
                 case 2:
                     System.out.println("Qual o seu nome?");
