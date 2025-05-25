@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package hotelreservegarden;
 
 import java.util.Scanner;
@@ -15,6 +12,9 @@ public class CadastroDeLogin {
     
     
     Scanner teclado = new Scanner(System.in);
+    
+    
+    
     
     void cadastrar(String nome, String telefone, String login, String senha){
         System.out.println("Qual o seu nome?");

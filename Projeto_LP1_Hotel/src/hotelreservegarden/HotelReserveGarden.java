@@ -14,9 +14,15 @@ public class HotelReserveGarden {
         String login = null;
         String senha = null;
         
+        String nomeFunc = null;
+        String telFunc = null;
+        String loginFunc = null;
+        String senhaFunc = null;
+
         Scanner teclado = new Scanner(System.in);
         
         CadastroDeLogin cadUsuario = new CadastroDeLogin();
+        CadastroDeFuncionario cadFuncionario = new CadastroDeFuncionario();
     
         do{
             
@@ -24,6 +30,7 @@ public class HotelReserveGarden {
             System.out.println("1 - JA TENHO UMA RESERVA");
             System.out.println("2 - QUERO FAZER UMA RESERVA");
             System.out.println("3 - OLHAR QUARTOS DISPONIVEIS");
+            System.out.println("4 - SOU FUNCIONARIO");
             System.out.println("0 - SAIR");
             
             opcao=teclado.nextInt();
@@ -39,6 +46,10 @@ public class HotelReserveGarden {
                     break;
                 case 3: 
                     System.out.println("\nVEJA OS QUARTOS DISPONIVEIS \n");
+                    break;
+                case 4: 
+                    System.out.println("\nAREA DO FUNCIONAIO \n");
+                    cadFuncionario.cadastrarFuncionario(nomeFunc,telFunc,loginFunc,senhaFunc);
                     break;
                 case 0:
                     condicao=true;
