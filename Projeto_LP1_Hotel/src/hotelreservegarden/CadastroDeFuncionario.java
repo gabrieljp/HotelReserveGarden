@@ -1,70 +1,81 @@
-
 package hotelreservegarden;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class CadastroDeFuncionario {
-    private String nomeFunc;
-    private String telFunc;
-    private String loginFunc;
-    private String senhaFunc;
-    private boolean cond=false;
-    private int opcao;
-    
-    
-    
-    
-    Scanner teclado = new Scanner(System.in);
-   
-    
-    
-    
-    
-    void cadastrarFuncionario(String nome, String telefone, String login, String senha){
-        do{  
-            System.out.println("1 - JA POSSUO CADASTRO");
+    private ArrayList<Funcionario> funcionarios;
+    private Scanner teclado = new Scanner(System.in);
+
+    public CadastroDeFuncionario() {
+        this.funcionarios = new ArrayList<>();
+        // Adicionando alguns funcionários iniciais para teste
+        adicionarFuncionario(new Funcionario("Administrador", "123456789", "admin", "admin123"));
+        adicionarFuncionario(new Funcionario("Gerente", "987654321", "gabriel", "123"));
+    }
+
+    public void adicionarFuncionario(Funcionario funcionario) {
+        this.funcionarios.add(funcionario);
+    }
+
+    public Funcionario buscarFuncionarioPorLogin(String login) {
+        for (Funcionario funcionario : funcionarios) {
+            if (funcionario.getLogin().equals(login)) {
+                return funcionario;
+            }
+        }
+        return null;
+    }
+
+    public void exibirMenuCadastro(AuthenticacaoLoginFuncionario autenticacao) {
+        boolean sair = false;
+        do {
+            System.out.println("\nMENU DE FUNCIONÁRIOS");
+            System.out.println("1 - LOGIN");
             System.out.println("2 - QUERO ME CADASTRAR");
-            System.out.println("3 - QUERO CORRIGIR MEU CADASTRO");
-            System.out.println("0 - SAIR");
-            opcao = teclado.nextInt();
-            teclado.nextLine(); // Consome a linha restante (incluindo o Enter), sem isso ja ia direto pra o telefone.
-            
-            switch(opcao){
+            System.out.println("3 - CORRIGIR MEU CADASTRO (Falta implementar)");
+            System.out.println("0 - VOLAR AO MENU PRINCIPAL");
+            System.out.print("ESCOLHA A OPCAO ");
+            int opcao = teclado.nextInt();
+            teclado.nextLine(); // Consome a linha restante
+
+            switch (opcao) {
                 case 1:
-                    System.out.println(" AUTHENTICAR LOGIN DO FUNCIONARIO");
-                    System.out.println(" FALTA IMPLEMENTAR\n");
-                    
-                    
+                    autenticacao.realizarLogin();
                     break;
                 case 2:
-                    System.out.println("Qual o seu nome?");
-                    nomeFunc = teclado.nextLine();
-
-                    System.out.println("Qual o seu telefone?");
-                    telFunc = teclado.nextLine();
-
-                    System.out.println("Digite um login.");
-                    loginFunc = teclado.nextLine();
-
-                    System.out.println("Digite uma senha.");
-                    senhaFunc = teclado.nextLine();
-
-                    System.out.println("\nCADASTRO REALIZADO COM SUCESSO!\n");                    
+                    System.out.println("1 - Já possuo cadastro (Login)");
+                    
                     break;
                 case 3:
-                    System.out.println(" CORRIJA SEU CADASTRO");
+                    System.out.println("Funcionalidade de correção de cadastro ainda não implementada.");
                     break;
                 case 0:
-                    System.out.println("\nVOLTANDO AO MENU PRINCIPAL \n");
-                    cond=true;
+                    System.out.println("Voltando ao menu principal.");
+                    sair = true;
                     break;
                 default:
-                    System.out.println("\nOPCAO INVALIDA! \n");                    
-                    
-            }             
-        
-        }while(cond!=true);
-        
+                    System.out.println("Opção inválida!");
+            }
+        } while (!sair);
     }
-    
+
+    void cadastrarNovoFuncionario(String nomeFunc, String telFunc, String loginFunc, String senhaFunc) {
+        System.out.println("\nNOVO CADASTRO DE FUNCIONARIO");
+        System.out.print("Qual o seu nome? ");
+        String nome = teclado.nextLine();
+
+        System.out.print("Qual o seu telefone? ");
+        String telefone = teclado.nextLine();
+
+        System.out.print("Digite um login: ");
+        String login = teclado.nextLine();
+
+        System.out.print("Digite uma senha: ");
+        String senha = teclado.nextLine();
+
+        Funcionario novoFuncionario = new Funcionario(nome, telefone, login, senha);
+        adicionarFuncionario(novoFuncionario);
+        System.out.println("\nCADASTRO REALIZADO COM SUCESSO!\n");
+    }
 }

@@ -17,16 +17,16 @@ public class CadastroDeLogin {
     
     
     void cadastrar(String nome, String telefone, String login, String senha){
-        System.out.println("Qual o seu nome?");
+        System.out.println("QUAL O SEU NOME?");
         nomeUsuario = teclado.nextLine();
         
-        System.out.println("Qual o seu telefone?");
+        System.out.println("QUAL O SEU TELEFONE?");
         telUsuario = teclado.nextLine();
         
-        System.out.println("Digite um login.");
+        System.out.println("DIGITE SEU LOGIN");
         loginUsuario = teclado.nextLine();
         
-        System.out.println("Digite uma senha.");
+        System.out.println("DIGITE SUA SENHA");
         senhaUsuario = teclado.nextLine();
         
         System.out.println("\nCADASTRO REALIZADO COM SUCESSO!\n");

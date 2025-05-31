@@ -1,11 +1,10 @@
-
 package hotelreservegarden;
 
 import java.util.Scanner;
 
 public class HotelReserveGarden {
 
-  
+    private static GestaoQuartos gestaoQuartos = new GestaoQuartos();
     public static void main(String[] args) {
         int opcao;
         
@@ -50,10 +49,13 @@ public class HotelReserveGarden {
                     break;
                 case 3: 
                     System.out.println("\nVEJA OS QUARTOS DISPONIVEIS \n");
+                    gestaoQuartos.mostrarQuartosDisponiveis();
                     break;
+                
                 case 4: 
-                    System.out.println("\nAREA DO FUNCIONAIO \n");
-                    cadFuncionario.cadastrarFuncionario(nomeFunc,telFunc,loginFunc,senhaFunc);
+                    System.out.println("\nAREA DO FUNCIONARIO \n");
+                    cadFuncionario.cadastrarNovoFuncionario(nomeFunc, telFunc, loginFunc, senhaFunc);
+                    gestaoQuartos.menuFuncionario(teclado);
                     break;
                 case 0:
                     condicao=true;
