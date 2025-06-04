@@ -50,7 +50,7 @@ public class AuthenticacaoLoginFuncionario {
                     gestaoQuartos.menuFuncionario(teclado);
                     break;
                 case 2:                 
-                    HotelReserveGarden.gerenciadorDeReservas.listarReservas(); //metodo que lista as reservas 
+                    HotelReserveGarden.gerenciadorDeReservas.listarReservas(); //metodo que lista as reservas que pertence a classe gerenciadorDeReservas e esta instanciada no main
                     break;
                 case 3:
                     System.out.println("LOGOUT REALIZADO.");

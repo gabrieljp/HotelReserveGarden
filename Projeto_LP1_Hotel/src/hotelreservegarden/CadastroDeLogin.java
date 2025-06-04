@@ -45,20 +45,20 @@ public class CadastroDeLogin {
         public void setSenha(String senha) { this.senha = senha; }
     }
 
-    public void cadastrar(String nome, String telefone, String login, String senha) {
+    public void cadastrar() {
         System.out.println("\n--- CADASTRO DE USUARIO ---");
         System.out.print("QUAL O SEU NOME? ");
-        nome = teclado.nextLine().toUpperCase();
+        String nome = teclado.nextLine().toUpperCase();
         System.out.print("QUAL O SEU TELEFONE? ");
-        telefone = teclado.nextLine();
+        String telefone = teclado.nextLine();
         System.out.print("DIGITE UM LOGIN: ");
-        login = teclado.nextLine().toUpperCase();
+        String login = teclado.nextLine().toUpperCase();
         if (buscarUsuarioPorLogin(login) != null) {
             System.out.println("LOGIN JA EXISTENTE. CADASTRO CANCELADO.");
             return;
         }
         System.out.print("DIGITE UMA SENHA: ");
-        senha = teclado.nextLine();
+        String senha = teclado.nextLine();
 
         usuarios.add(new Usuario(nome, telefone, login, senha));
         System.out.println("\nCADASTRO REALIZADO COM SUCESSO!\n");
@@ -162,6 +162,7 @@ public class CadastroDeLogin {
         System.out.println("2 - FAZER RESERVA");
         System.out.println("3 - CORRIGIR MEU CADASTRO");
         System.out.println("4 - EXCLUIR MEU CADASTRO");
+        System.out.println("5 - FAZER MEU CADASTRO");
         System.out.println("0 - VOLTAR AO MENU PRINCIPAL");
         System.out.print("ESCOLHA A OPCAO: ");
         int opcao = teclado.nextInt();
@@ -217,6 +218,9 @@ public class CadastroDeLogin {
             case 4:
                 excluirCadastro();
                 break;
+            case 5:
+                cadastrar();
+            break;
             case 0:
                 System.out.println("VOLTANDO AO MENU PRINCIPAL.");
                 sair = true;

@@ -110,6 +110,7 @@ public class GerenciadorDeReservas {//criando a classe que gerencia as reservas
             return;
         }
 
+        
         System.out.println("SUAS RESERVAS:");
         for (int i = 0; i < reservasDoUsuario.size(); i++) {
             System.out.println("(" + (i + 1) + ") " + reservasDoUsuario.get(i));

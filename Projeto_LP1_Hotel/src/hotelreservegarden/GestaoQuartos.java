@@ -42,6 +42,19 @@ public class GestaoQuartos {
         public void setDisponivel(boolean disponivel) { 
             this.disponivel = disponivel; 
         }
+
+        public void setNumero(int numero) {
+            this.numero = numero;
+        }
+
+        public void setTipo(String tipo) {
+            this.tipo = tipo;
+        }
+
+        public void setDiaria(double diaria) {
+            this.diaria = diaria;
+        }
+        
     }
 
     // cadastrar quartos iniciais
