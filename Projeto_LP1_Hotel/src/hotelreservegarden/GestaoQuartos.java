@@ -27,11 +27,21 @@ public class GestaoQuartos {
         }
 
          //get e set
-        public int getNumero() { return numero; }
-        public String getTipo() { return tipo; }
-        public double getDiaria() { return diaria; }
-        public boolean isDisponivel() { return disponivel; }
-        public void setDisponivel(boolean disponivel) { this.disponivel = disponivel; }
+        public int getNumero() { 
+            return numero;         
+        }
+        public String getTipo() {
+            return tipo; 
+        }
+        public double getDiaria() { 
+            return diaria;
+        }
+        public boolean isDisponivel() {
+            return disponivel;
+        }
+        public void setDisponivel(boolean disponivel) { 
+            this.disponivel = disponivel; 
+        }
     }
 
     // cadastrar quartos iniciais
@@ -40,14 +50,14 @@ public class GestaoQuartos {
         quartosDisponiveis.add(new Quarto(102, "Standard", 200.00, true));
         quartosDisponiveis.add(new Quarto(201, "Luxo", 350.00, true));
         quartosDisponiveis.add(new Quarto(202, "Luxo", 350.00, true));
-        quartosDisponiveis.add(new Quarto(301, "Suíte Presid.", 600.00, true));
+        quartosDisponiveis.add(new Quarto(301, "Suite Presid.", 600.00, true));
     }
 
     // Método para mostrar quartos disponíveis
     public void mostrarQuartosDisponiveis() {
-        System.out.println("\nQUARTOS DISPONIVEIS:");
+        System.out.println("\n--- QUARTOS DISPONIVEIS: ---");
         System.out.println("--------------------------------------------------");
-        System.out.println("NÚMERO\tTIPO\t\tDIÁRIA\tDISPONÍVEL");
+        System.out.println("NUMERO\tTIPO\t\tDIARIA\tDISPONIVEL");
         System.out.println("--------------------------------------------------");
         
         for (Quarto quarto : quartosDisponiveis) {
@@ -56,7 +66,7 @@ public class GestaoQuartos {
                         quarto.getNumero(),
                         quarto.getTipo(),
                         quarto.getDiaria(),
-                        quarto.isDisponivel() ? "Sim" : "Não");
+                        quarto.isDisponivel() ? "Sim" : "Nao");
             }
         }
         System.out.println("--------------------------------------------------");
@@ -66,7 +76,7 @@ public class GestaoQuartos {
     public void menuFuncionario(Scanner teclado) {
         int opcaoFunc;
         do {
-            System.out.println("\nMENU FUNCIONÁRIO - GESTÃO DE QUARTOS");
+            System.out.println("\nMENU FUNCIONARIO - GESTAO DE QUARTOS");
             System.out.println("1 - CADASTRAR NOVO QUARTO");
             System.out.println("2 - REMOVER QUARTO");
             System.out.println("3 - ALTERAR STATUS DO QUARTO");
@@ -93,7 +103,7 @@ public class GestaoQuartos {
                     System.out.println("Voltando ao menu principal...");
                     break;
                 default:
-                    System.out.println("Opção inválida!");
+                    System.out.println("Opcao invalida!");
             }
         } while(opcaoFunc != 0);
     }
@@ -101,28 +111,28 @@ public class GestaoQuartos {
     //gerenciar quartos
     private void cadastrarNovoQuarto(Scanner teclado) {
         System.out.println("\nCADASTRAR NOVO QUARTO");
-        System.out.print("Número do quarto: ");
+        System.out.print("NUMERO DO QUARTO: ");
         int numero = teclado.nextInt();
         teclado.nextLine();
         
-        System.out.print("Tipo do quarto: ");
+        System.out.print("TIPO DE QUARTO: ");
         String tipo = teclado.nextLine();
         
-        System.out.print("Valor da diária: ");
+        System.out.print("VALOR: ");
         double diaria = teclado.nextDouble();
         
         quartosDisponiveis.add(new Quarto(numero, tipo, diaria, true));
-        System.out.println("Quarto cadastrado com sucesso!");
+        System.out.println("QUARTO CADASTRADO COM SUCESSO!");
     }
     
     private void removerQuarto(Scanner teclado) {
-        System.out.print("\nDigite o número do quarto a ser removido: ");
+        System.out.print("\nDIGITE O NUMERO DO QUARTO: ");
         int numero = teclado.nextInt();
         
         for (int i = 0; i < quartosDisponiveis.size(); i++) {
             if (quartosDisponiveis.get(i).getNumero() == numero) {
                 quartosDisponiveis.remove(i);
-                System.out.println("Quarto removido com sucesso!");
+                System.out.println("QUARTO REMOVIDO COM SUCESSO!");
                 return;
             }
         }
@@ -130,38 +140,38 @@ public class GestaoQuartos {
     }
     
     private void alterarStatusQuarto(Scanner teclado) {
-        System.out.print("\nDigite o número do quarto: ");
+        System.out.print("\nDIGITE O NUMERO QUE QUER ALTERAR: ");
         int numero = teclado.nextInt();
         
         for (Quarto quarto : quartosDisponiveis) {
             if (quarto.getNumero() == numero) {
-                System.out.print("Alterar disponibilidade (true/false): ");
+                System.out.print("ALTERAR DISPONIBILIDADE (true/false): ");
                 boolean disponivel = teclado.nextBoolean();
                 quarto.setDisponivel(disponivel);
-                System.out.println("Status do quarto atualizado!");
+                System.out.println("STATUS DO QUARTO ATUALIZADO!");
                 return;
             }
         }
-        System.out.println("Quarto não encontrado!");
+        System.out.println("QUARTO NAO ENCONTRADO!");
     }
     
     private void listarTodosQuartos() {
         System.out.println("\nLISTA DE TODOS OS QUARTOS:");
         System.out.println("--------------------------------------------------");
-        System.out.println("NÚMERO\tTIPO\t\tDIÁRIA\tDISPONÍVEL");
+        System.out.println("NUMERO\tTIPO\t\tDIARIA\tDISPONIVEL");
         System.out.println("--------------------------------------------------");
         
-        for (Quarto quarto : quartosDisponiveis) {
-            System.out.printf("%d\t%-15sR$%.2f\t%s%n",
+        for (Quarto quarto : quartosDisponiveis) {//faz uma interação onde busca os quartos 
+            System.out.printf("%d\t%-15sR$%.2f\t%s%n",//formata os dados que %d( int ), \t(espaçamento e alinhamento das colunas), %-15s( o S - String, o - alinhara aesquerda, 15 - quantidade minima) %n pular a linha apos a formatção , 
                     quarto.getNumero(),
                     quarto.getTipo(),
                     quarto.getDiaria(),
-                    quarto.isDisponivel() ? "Sim" : "Não");
+                    quarto.isDisponivel() ? "Sim" : "Nao");
         }
         System.out.println("--------------------------------------------------");
     }
     
-    // verificar se um quarto específico está disponível
+    // verificar se um quarto específico está disponível pelo numero do quarto
     public boolean isQuartoDisponivel(int numeroQuarto) {
         for (Quarto quarto : quartosDisponiveis) {
             if (quarto.getNumero() == numeroQuarto && quarto.isDisponivel()) {
